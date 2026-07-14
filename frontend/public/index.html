@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌀 Storm VPS Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="loginContainer">
+      <div class="login-box">
+        <h1>🌀 Storm</h1>
+        <p class="subtitle">VPS Management Suite</p>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" value="vmallu" required>
+          <input type="password" id="password" placeholder="Password" value="vmallu" required>
+          <button type="submit">Login</button>
+        </form>
+        <div id="loginError" class="error"></div>
+      </div>
+    </div>
+
+    <div id="dashboard" style="display:none;">
+      <div class="header">
+        <h2>🌀 Storm Dashboard</h2>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+      </div>
+
+      <div id="adminPanel" style="display:none;" class="panel">
+        <h3>👑 Admin – Create User & VPS</h3>
+        <form id="createUserForm">
+          <input type="text" id="newUsername" placeholder="Username" required>
+          <input type="password" id="newPassword" placeholder="Password" required>
+          <input type="text" id="vpsName" placeholder="VPS Name (optional)">
+          <label>Choose VPS Plan:</label>
+          <select id="vpsPlan">
+            <option value="s-1vcpu-1gb">1 vCPU, 1 GB RAM, 25 GB SSD</option>
+            <option value="s-2vcpu-2gb">2 vCPU, 2 GB RAM, 50 GB SSD</option>
+            <option value="s-4vcpu-8gb" selected>4 vCPU, 8 GB RAM, 80 GB SSD</option>
+            <option value="s-8vcpu-16gb">8 vCPU, 16 GB RAM, 160 GB SSD</option>
+            <option value="s-16vcpu-32gb">16 vCPU, 32 GB RAM, 320 GB SSD</option>
+          </select>
+          <button type="submit">Create User + VPS</button>
+        </form>
+        <div id="adminResult"></div>
+      </div>
+
+      <div id="vpsListContainer">
+        <h3>My Servers</h3>
+        <div id="vpsList"></div>
+      </div>
+
+      <div id="consoleContainer" style="display:none;">
+        <h3>🖥️ Console: <span id="consoleVpsName"></span></h3>
+        <button id="closeConsoleBtn">Close Console</button>
+        <textarea id="term" readonly></textarea>
+        <div id="commandInput">
+          <input type="text" id="cmdInput" placeholder="Type command and press Enter" autofocus>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
