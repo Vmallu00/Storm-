@@ -1,0 +1,25 @@
+{
+  "name": "storm-vps-manager",
+  "version": "1.0.0",
+  "description": "Storm VPS Management Suite",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "bcryptjs": "^2.4.3",
+    "sequelize": "^6.31.0",
+    "pg": "^8.10.0",
+    "dotenv": "^16.0.3",
+    "axios": "^1.3.4",
+    "ssh2": "^1.14.0",
+    "ws": "^8.13.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
