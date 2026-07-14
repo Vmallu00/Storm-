@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: storm
+      POSTGRES_PASSWORD: storm
+      POSTGRES_DB: stormdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://storm:storm@db:5432/stormdb
+      JWT_SECRET: dev_secret
+      DO_API_TOKEN: your_do_token_here
+      DO_REGION: nyc1
+      DO_SIZE: s-1vcpu-1gb
+      ADMIN_USER: vmallu
+      ADMIN_PASS: vmallu
+    depends_on:
+      - db
+volumes:
+  pgdata:
